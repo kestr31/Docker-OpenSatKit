@@ -114,11 +114,7 @@ RUN \
     && bundle install
 
 # COPY INITIALIZATION SCRIPT USED AS A DOCKER CMD
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-
-# GRANT RUN PERMISSION TO INITIALIZATION SCRIPT
-RUN \
-    chmod +x /usr/local/bin/entrypoint.sh
+COPY --chmod=777 entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # APPLY LABELS TO THIS CONTAINER
 LABEL title="OpenSatkit Container"
