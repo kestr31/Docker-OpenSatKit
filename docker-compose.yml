@@ -1,0 +1,29 @@
+version: "3"
+services:
+  stable-diffusion:
+    image: kestr3l/opensatkit:latest
+    restart: unless-stopped
+    container_name: OpenSatKit
+    environment:
+      # CHECK ENVIRONMENT VARIAVBLED OF YOUR SYSTEM
+      ## FOLLOWING ENV. VARIABLES MAY VARY: 
+      ## ------------------------------------------
+      ## DISPLAY        : echo $DISPLAY
+      ## WAYLAND_DISPLAY: echo $WAYLAND_DISPLAY
+      ## XDG_RUNTIME_DIR: echo $XDG_RUNTIME_DIR
+      ## ------------------------------------------
+      - DISPLAY=:0
+      - WAYLAND_DISPLAY=wayland-0
+      - XDG_RUNTIME_DIR=/run/user/1000/
+      - QT_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    devices:
+      # NAME OF TOUR SERIAL DEVICE MAY VARY
+      ## CHECK IT BY: dmesg | grep tty
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    # FOR OpenSatKit, HOST NETWORK MODE IS CONVENIENT
+    network_mode: host
+    # REQUIRED FOR COSMOS GUI (QT4)
+    ipc: host
+    privileged: true
