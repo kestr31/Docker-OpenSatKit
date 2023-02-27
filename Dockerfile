@@ -90,8 +90,6 @@ ENV \
     PATH=/home/user/.rbenv/shims:$PATH
 
 # CLONE OpenSatKit REPOSITORY, BUILD CFS AND GRANT RUN PERMISSION
-## DEFAULT 42 SIMULATOR AND COSMOS DIRECTORY WILL BE REMOVED
-## SINCE WE WILL USE MODIFIED VERSION FOR FLATSAT TESTING
 RUN \
     git clone -b ${OSK_VERSION} https://github.com/OpenSatKit/OpenSatKit.git \
     && make distclean -C /home/user/OpenSatKit/cfs \
@@ -136,7 +134,7 @@ CMD [ "/usr/local/bin/entrypoint.sh" ]
 # --build-arg BASEIMAGE=ubuntu \
 # --build-arg BASETAG=18.04 \
 # --build-arg OSK_VERSION=v2.5 \
-# -t kestr3l/opensatkit:v2.5 \
+# -t kestr3l/opensatkit:18.04-v2.5-original \
 # -f Dockerfile .
 
 # ----------- RUN COMMAND -----------
@@ -152,4 +150,4 @@ CMD [ "/usr/local/bin/entrypoint.sh" ]
 #    --gpus all \
 #    --privileged \
 #    --name OpenSatKit \
-#    kestr3l/opensatkit:v2.5 bash
+#    kestr3l/opensatkit:18.04-v2.5-original

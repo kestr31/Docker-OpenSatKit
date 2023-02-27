@@ -1,7 +1,7 @@
 version: "3"
 services:
   stable-diffusion:
-    image: kestr3l/opensatkit:latest
+    image: kestr3l/opensatkit:18.04-v2.5-original
     restart: unless-stopped
     container_name: OpenSatKit
     environment:

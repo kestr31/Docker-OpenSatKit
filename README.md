@@ -25,7 +25,7 @@ DOCKER_BUILDKIT=1 docker build --no-cache \
 --build-arg BASEIMAGE=ubuntu \
 --build-arg BASETAG=18.04 \
 --build-arg OSK_VERSION=v2.5 \
--t kestr3l/opensatkit:v2.5 \
+-t kestr3l/opensatkit:18.04-v2.5-original \
 -f Dockerfile .
 ```
 
@@ -63,7 +63,7 @@ docker run -it --rm \
    --gpus all \
    --privileged \
    --name OpenSatKit \
-   kestr3l/opensatkit:18.04-v2.5-mod
+   kestr3l/opensatkit:18.04-v2.5-original
 ```
 
 ### 2.2 `docker-compose` command
