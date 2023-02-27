@@ -107,7 +107,22 @@ docker exec -it OpenSatKit minicom -s
   - Installation of Ruby 2.5.8 using [rbenv/rbenv](https://github.com/rbenv/rbenv)
     - Modification of `rbenv` and `ruby-build` repository's name to clone
 
-## 4.  References
+## 4. Applications
+
+- For developing your own CFS app or modified 42 simulator, **use [docker volume mapping](https://docs.docker.com/storage/volumes/)**.
+- Mapped volume will be persistent even after killing a container.
+
+## 5. List of Tags
+
+- Available tags of images distributed by [docker hub](https://hub.docker.com/r/kestr3l/opensatkit) are as following:
+  - **Naming rule: \<UBUNTU VERSION\> - \<OpenSatKit VERSION\> - \<VARIANT\>**
+
+|TAG|DESCRIPTION|
+|:-|:-|
+|`18.04-v2.5-mod`|Version including modified 42 simulator and COSMOS.<br/>*(For internal testing purpose)*|
+|`18.04-v2.5-original`|Version including OpenSatKit as it is.<br/>*(For external users for development)*|
+
+## 6.  References
 
 1. [OpenSatKit/OpenSatKit - github.com](https://github.com/OpenSatKit/OpenSatKit)
 2. [BallAerosapce/COSMOS - github.com](https://github.com/BallAerospace/COSMOS)
