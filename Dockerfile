@@ -133,18 +133,3 @@ CMD [ "/usr/local/bin/entrypoint.sh" ]
 # --build-arg OSK_VERSION=v2.5 \
 # -t kestr3l/opensatkit:18.04-v2.5-original \
 # -f Dockerfile .
-
-# ----------- RUN COMMAND -----------
-# docker run -it --rm \
-#    -e DISPLAY=$DISPLAY \
-#    -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY \
-#    -e QT_NO_MITSHM=1 \
-#    -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
-#    -v /tmp/.X11-unix:/tmp/.X11-unix \
-#    --device /dev/ttyUSB0 \
-#    --net host \
-#    --ipc host \
-#    --gpus all \
-#    --privileged \
-#    --name OpenSatKit \
-#    kestr3l/opensatkit:18.04-v2.5-original
