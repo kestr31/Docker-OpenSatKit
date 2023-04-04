@@ -22,6 +22,7 @@ minicom
 neovim
 qt4-default
 qt4-dev-tools
+sudo
 wget
 xfce4-terminal
 zlib1g-dev

@@ -57,7 +57,8 @@ RUN \
 # Add non-root user 'user' with group 'user'
 RUN \
     groupadd user \
-    && useradd -ms /bin/bash user -g user
+    && useradd -ms /bin/bash user -g user \
+    && echo "user ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # Change default user and directory for running a container
 USER user
