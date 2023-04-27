@@ -16,10 +16,15 @@ ENV \
     LC_ALL=C.UTF-8
 
 # UPDATE APT REPOSITORY FOR CACHING PACKAGE LISTS
+## GRAPHICS DRIVER OF UBUNTU 18.04 REPOSITORY IS OUTDATED
+## THEREFORE, KISAK REPOSITORY IS USED FOR THE LATEST RELEASE
 RUN \
     rm -rf /etc/apt/apt.conf.d/docker-clean \
 	&& echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache \
-	&& apt-get update
+	&& apt-get update \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository -y ppa:kisak/kisak-mesa \
+    && apt-get update
 
 
 # STAGE FOR INSTALLING APT DEPENDENCIES
@@ -130,6 +135,6 @@ CMD [ "/usr/local/bin/entrypoint.sh" ]
 # DOCKER_BUILDKIT=1 docker build --no-cache \
 # --build-arg BASEIMAGE=ubuntu \
 # --build-arg BASETAG=18.04 \
-# --build-arg OSK_VERSION=v2.5 \
-# -t kestr3l/opensatkit:18.04-v2.5-original \
+# --build-arg OSK_VERSION=v4.0 \
+# -t kestr3l/opensatkit:18.04-v4.0-original \
 # -f Dockerfile .
