@@ -1,7 +1,7 @@
 version: "3"
 services:
   stable-diffusion:
-    image: kestr3l/opensatkit:18.04-v2.5-original
+    image: kestr3l/opensatkit:18.04-v4.0-original
     restart: unless-stopped
     container_name: OpenSatKit
     environment:
@@ -18,12 +18,16 @@ services:
       - QT_NO_MITSHM=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-    devices:
+    # devices:
       # NAME OF TOUR SERIAL DEVICE MAY VARY
       ## CHECK IT BY: dmesg | grep tty
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      # - /dev/ttyUSB0:/dev/ttyUSB0
+      # ELSE, YOU CAN MAP ALL DEVICE
+      # - /dev:/dev
     # FOR OpenSatKit, HOST NETWORK MODE IS CONVENIENT
     network_mode: host
     # REQUIRED FOR COSMOS GUI (QT4)
     ipc: host
     privileged: true
+    # UNCOMMENT THIS FOR DEBUG PURPOSE
+    # command: bash -c "sleep infinity"
