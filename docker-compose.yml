@@ -21,7 +21,7 @@ services:
     # devices:
       # NAME OF TOUR SERIAL DEVICE MAY VARY
       ## CHECK IT BY: dmesg | grep tty
-      # - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB0:/dev/ttyUSB0
       # ELSE, YOU CAN MAP ALL DEVICE
       # - /dev:/dev
     # FOR OpenSatKit, HOST NETWORK MODE IS CONVENIENT
